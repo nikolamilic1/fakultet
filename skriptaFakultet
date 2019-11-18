@@ -45,3 +45,10 @@ create table prijava(
     rok int NOT NULL,
     kolegij int NOT NULL
 );
+
+alter table rok add foreign key (student) references student(sifra);
+alter table student add foreign key (osoba) REFERENCES osoba(sifra);
+alter table predavac add foreign KEY (osoba) REFERENCES osoba(sifra);
+alter table kolegij add foreign key (predavac) references predavac(sifra);
+alter table prijava add foreign key (rok) REFERENCES rok(sifra);
+alter table prijava add foreign key (kolegij) REFERENCES kolegij(sifra);
